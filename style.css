@@ -1,96 +1,138 @@
-// --- Menú hamburguesa ---
-// Menú hamburguesa dinámico
-const mobileMenu = document.getElementById('mobile-menu');
-const navList = document.querySelector('.nav-list');
-
-mobileMenu.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-    navList.classList.toggle('active'); // entra o sale con animación
-});
-
-
-// --- Corazones y estrellas ---
-const heartsContainer = document.getElementById('hearts-container');
-const starsContainer = document.getElementById('stars-container');
-const bodyWidth = window.innerWidth;
-const bodyHeight = window.innerHeight;
-
-function createHeart() {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.style.left = Math.random() * bodyWidth + 'px';
-    heart.style.bottom = '20px';
-    heart.style.transform = `rotate(${Math.random()*360}deg)`;
-    heartsContainer.appendChild(heart);
-
-    const duration = 4 + Math.random() * 3;
-    heart.animate(
-        [
-            { transform: `translateY(0) rotate(${Math.random()*360}deg)`, opacity: 1 },
-            { transform: `translateY(-${bodyHeight + 50}px) rotate(${Math.random()*720}deg)`, opacity: 0 }
-        ],
-        { duration: duration * 1000, easing: 'linear' }
-    ).onfinish = () => heart.remove();
+/* Body */
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffe6f0, #ffd1dc);
+    color: #d6006c;
+    overflow-x: hidden; /* previene scroll horizontal */
 }
 
-function createStar() {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = Math.random() * bodyWidth + 'px';
-    star.style.top = Math.random() * bodyHeight + 'px';
-    starsContainer.appendChild(star);
-
-    setTimeout(() => star.remove(), 4000 + Math.random() * 3000);
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgba(214, 0, 108, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
 }
 
-setInterval(createHeart, 500);
-setInterval(createStar, 200);
-
-// Animación inicial del párrafo
-window.addEventListener('load', () => {
-    document.querySelector('#nosotros p').style.opacity = 1;
-});
-
-// --- Música de fondo ---
-let player;
-let playerReady = false;
-
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player', {
-        height: '0',
-        width: '0',
-        videoId: 'CH3Et5yizAY',
-        playerVars: {
-            autoplay: 0,
-            controls: 0,
-            loop: 1,
-            playlist: 'CH3Et5yizAY'
-        },
-        events: {
-            'onReady': () => {
-                playerReady = true;
-            }
-        }
-    });
+/* Lista del menú lateral */
+.nav-list {
+    margin-top: 53px;
+    position: fixed;        /* ahora cubre todo el viewport */
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;          /* altura completa de la pantalla */
+    background-color: #ffd1dc; /* rosa clarito */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    z-index: 2000; /* menor que el botón hamburguesa */
+    transform: translateX(-200vw); /* fuera de la pantalla */
+    transition: transform 0.3s ease;
 }
 
-const playButton = document.getElementById('play-music');
-playButton.addEventListener('click', () => {
-    if (playerReady && player && player.playVideo) {
-        player.playVideo();
-        playButton.style.display = 'none';
-    } 
-    /** else {
-        const warning = document.createElement('div');
-        warning.textContent = '⚠️ El reproductor aún no está listo. Intenta de nuevo en unos segundos.';
-        warning.style.backgroundColor = 'red';
-        warning.style.color = 'white';
-        warning.style.padding = '10px';
-        warning.style.marginTop = '10px';
-        warning.style.borderRadius = '5px';
-        document.body.appendChild(warning);
-        setTimeout(() => warning.remove(), 3000);
-    } **/
-});
+.nav-list li {
+    margin: 20px 0;
+    padding-left: 10px;
+}
+
+.nav-list li a {
+    color: #d6006c;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.nav-list.active {
+    transform: translateX(0); /* entra al viewport */
+
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    overflow: visible; /* permitir que las barras rotadas no se corten */
+}
 
 
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* Sección Nosotros */
+section#nosotros {
+    padding: 100px 20px 50px;
+    text-align: center;
+}
+
+/* Párrafo fadeIn */
+section#nosotros p {
+    opacity: 0;
+    animation: fadeIn 3s ease-in forwards;
+}
+
+/* Corazones */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #d6006c;
+    transform: rotate(45deg);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #d6006c;
+    border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: 10px; top: 0; }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* Botón música */
+#play-music {
+    margin-top: 20px;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    background-color: #d6006c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
