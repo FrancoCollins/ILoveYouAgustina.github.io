@@ -82,14 +82,19 @@ body {
 }
 
 
-/* Sección Nosotros */
-section#nosotros {
-    padding: 100px 20px 50px;
+section#inicio {
+    min-height: calc(90vh); /* ajusta 80px al alto de tu navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 20px;
 }
 
+
 /* Párrafo fadeIn */
-section#nosotros p {
+section#inicio p {
     opacity: 0;
     animation: fadeIn 3s ease-in forwards;
 }
@@ -135,4 +140,265 @@ section#nosotros p {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+}
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    width: 80%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-track img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 5px;
+    border-radius: 8px;
+}
+
+.carousel-btn {
+    background-color: #d6006c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 5px;
+    user-select: none;
+}
+
+
+/** PLANES **/
+.carousel-container-plans {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    transition: transform 0.4 ease;
+}
+
+.cards-wrapper {
+    overflow: hidden;
+    width: 90vw; /* ajusta según cuántas tarjetas quieras ver al mismo tiempo */
+    align-self: center;
+}
+
+.cards-container-plans {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+}
+
+.carousel-btn {
+    background-color: #d6006c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    user-select: none;
+}
+
+.cards-container-plans::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-container-plans::-webkit-scrollbar-thumb {
+    background-color: #d6006c;
+    border-radius: 4px;
+}
+
+.cards-container-plans::-webkit-scrollbar-track {
+    background-color: #ffd1dc;
+}
+
+
+.card {
+    background-color: #ffd1dc;
+    border: 2px solid #d6006c;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    flex: 0 0 200px
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.plan-form {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.plan-form input, .plan-form button {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #d6006c;
+}
+
+.plan-form button {
+    background-color: #d6006c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.plan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* espacio entre los campos */
+    max-width: 320px; /* ancho total del form / tarjetas */
+    margin: 20px auto; /* centrar el formulario */
+}
+
+.plan-form input,
+.plan-form select,
+.plan-form textarea,
+.plan-form button {
+    width: 100%; /* todos los campos ocupan todo el ancho del form */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #d6006c;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.plan-form textarea {
+    resize: vertical; /* permite cambiar altura si se quiere */
+    min-height: 60px; /* altura inicial */
+}
+
+/** flights **/
+.carousel-container-flights {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    transition: transform 0.4 ease;
+}
+
+.cards-wrapper {
+    overflow: hidden;
+    width: 90vw; /* ajusta según cuántas tarjetas quieras ver al mismo tiempo */
+    align-self: center;
+}
+
+.cards-container-flights {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+}
+
+.carousel-btn {
+    background-color: #d6006c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    user-select: none;
+}
+
+.cards-container-flights::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-container-flights::-webkit-scrollbar-thumb {
+    background-color: #d6006c;
+    border-radius: 4px;
+}
+
+.cards-container-flights::-webkit-scrollbar-track {
+    background-color: #ffd1dc;
+}
+
+
+.card {
+    background-color: #ffd1dc;
+    border: 2px solid #d6006c;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    flex: 0 0 200px
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.flight-form {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flight-form input, .flight-form button {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #d6006c;
+}
+
+.flight-form button {
+    background-color: #d6006c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.flight-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* espacio entre los campos */
+    max-width: 320px; /* ancho total del form / tarjetas */
+    margin: 20px auto; /* centrar el formulario */
+}
+
+.flight-form input,
+.flight-form select,
+.flight-form textarea,
+.flight-form button {
+    width: 100%; /* todos los campos ocupan todo el ancho del form */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #d6006c;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.flight-form textarea {
+    resize: vertical; /* permite cambiar altura si se quiere */
+    min-height: 60px; /* altura inicial */
 }
