@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nosotros ❤️</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Menú hamburguesa -->
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./planes.html">Planes</a></li>
+            <li><a href="./viajes.html">Viajes</a></li>
+            <li><a href="./sabias.html">¿Sabías que?</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Nosotros -->
+    <section id="inicio">
+        <h1>Sección Nosotros ❤️</h1>
+        <p>
+            Esta sección es para poner una galería de fotos y videos que nos gusten.<br>
+            Todos los estilos son completamente personalizables,<br>
+            así que cualquier idea que tengamos podemos ponerla en obra.<br>
+            ¡Espero que te guste y te diviertas explorando nuestras fotos!
+        </p>
+
+        <!-- Carrusel manual -->
+        <div class="carousel-container">
+            <button class="carousel-btn prev">◀</button>
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+                    <img src="../img/foto1.jpeg" alt="Foto 1">
+                    <img src="../img/foto2.jpeg" alt="Foto 2">
+                    <img src="../img/foto3.jpeg" alt="Foto 3">
+                    <img src="../img/foto1.jpeg" alt="Foto 4"> <!-- clon -->
+                    <img src="../img/foto4.jpg" alt="Foto 5"> <!-- clon -->
+                </div>
+            </div>
+            <button class="carousel-btn next">▶</button>
+        </div>
+
+    </section>
+
+    <!-- Contenedores para animaciones -->
+    <div id="hearts-container"></div>
+    <div id="stars-container"></div>
+
+    <!-- Botón de música (temporal) -->
+    <button id="play-music">Reproducir música ❤️</button>
+    <div id="yt-player"></div>
+
+    <script src="../script.js"></script>
+
+
+</body>
+
+</html>
