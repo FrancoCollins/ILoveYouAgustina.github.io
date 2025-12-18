@@ -153,6 +153,7 @@ section#inicio p {
    BOTÓN MÚSICA
 ===================== */
 #play-music {
+    display: none;
     margin-top: 20px;
     font-size: 1.2em;
     padding: 10px 20px;
