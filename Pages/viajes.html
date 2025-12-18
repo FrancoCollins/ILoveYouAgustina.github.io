@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Viajes ✈️</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Menú hamburguesa -->
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./planes.html">Planes</a></li>
+            <li><a href="./viajes.html">Viajes</a></li>
+            <li><a href="./sabias.html">¿Sabías que?</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Viajes -->
+    <section id="inicio">
+        <h1>Sección Viajes ✈️</h1>
+        <p>
+            Esta sección es para anotar viajes soñados, escapadas planeadas y destinos que nos ilusionan.
+            Desde grandes aventuras hasta pequeñas escapadas, todo lo que queremos recorrer juntos
+            puede guardarse aca para no olvidar hacerlo ✈️🌍
+        </p>
+        <!-- Contenedor de tarjetas -->
+        <div class="carousel-container-flights">
+            <button class="carousel-btn prev-flights">&lt;</button>
+            <div class="cards-wrapper">
+                <div class="cards-container-flights" id="cards-container-flights">
+                    <!-- Las tarjetas se generan dinámicamente aquí -->
+                </div>
+            </div>
+            <button class="carousel-btn next-flights">&gt;</button>
+        </div>
+
+        <!-- Formulario -->
+        <form id="flight-form" class="flight-form">
+            <input type="text" name="destination" placeholder="Destino" required>
+
+            <select name="author" required>
+                <option value="" disabled selected>Selecciona autor</option>
+                <option value="Franco">👑 Franco</option>
+                <option value="Agus">👸 Agus</option>
+            </select>
+
+            <label class="date-label">
+                <span>Fecha de ida</span>
+                <input type="date" name="departure" required>
+            </label>
+
+            <label class="date-label">
+                <span>Fecha de vuelta</span>
+                <input type="date" name="return">
+            </label>
+
+
+            <textarea name="description" placeholder="Notas del viaje"></textarea>
+
+            <button type="submit">Agregar viaje</button>
+        </form>
+    </section>
+
+    <div id="hearts-container"></div>
+    <div id="stars-container"></div>
+
+    <button id="play-music">Reproducir música ❤️</button>
+
+    <script src="../script.js"></script>
+    <script src="../flights.js"></script>
+
+</body>
+
+</html>
