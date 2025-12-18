@@ -116,6 +116,15 @@ section#inicio p {
     animation: fadeIn 3s ease-in forwards;
 }
 
+/* Párrafo fadeIn */
+section#inicio p#sabias {
+    opacity: 0;
+    animation: fadeIn 3s ease-in forwards;
+    text-align: left;
+    padding-right: 10px;
+    width: 80%;
+}
+
 /* =====================
    CORAZONES
 ===================== */
