@@ -1,59 +1,59 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #ffe6f0, #ffd1dc);
-    color: #d6006c;
-    text-align: center;
-    margin: 0;
-    overflow: hidden;
+// Contenedores
+const heartsContainer = document.getElementById('hearts-container');
+const starsContainer = document.getElementById('stars-container');
+const bodyWidth = window.innerWidth;
+const bodyHeight = window.innerHeight;
+
+// Función para crear corazones aleatorios
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * bodyWidth + 'px';
+    heart.style.bottom = '-20px';
+    heart.style.transform = `rotate(${Math.random()*360}deg)`;
+    heartsContainer.appendChild(heart);
+
+    const duration = 4 + Math.random() * 3; // 4-7 segundos
+    heart.animate(
+        [
+            { transform: `translateY(0) rotate(${Math.random()*360}deg)`, opacity: 1 },
+            { transform: `translateY(-${bodyHeight + 50}px) rotate(${Math.random()*720}deg)`, opacity: 0 }
+        ],
+        { duration: duration * 1000, easing: 'linear' }
+    ).onfinish = () => heart.remove();
 }
 
-h1 {
-    font-size: 4em;
-    animation: pulse 1.5s infinite;
-    margin: 0.2em;
+// Función para crear estrellas aleatorias
+function createStar() {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * bodyWidth + 'px';
+    star.style.top = Math.random() * bodyHeight + 'px';
+    starsContainer.appendChild(star);
+
+    setTimeout(() => star.remove(), 4000 + Math.random() * 3000);
 }
 
-p {
-    font-size: 1.5em;
-    max-width: 600px;
-    line-height: 1.6;
-    animation: fadeIn 3s ease-in forwards;
-    opacity: 0;
-}
+// Generar corazones y estrellas continuamente
+setInterval(createHeart, 500);
+setInterval(createStar, 200);
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
+// Animación inicial del párrafo
+window.addEventListener('load', () => {
+    document.querySelector('p').style.opacity = 1;
+});
 
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px);}
-    100% { opacity: 1; transform: translateY(0);}
-}
+// --- Música de fondo ---
+const playButton = document.getElementById('play-music');
+playButton.addEventListener('click', () => {
+    // Crear iframe de YouTube
+    const iframe = document.createElement('iframe');
+    iframe.width = "0";
+    iframe.height = "0";
+    iframe.src = "https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&loop=1&playlist=YOUR_VIDEO_ID";
+    iframe.allow = "autoplay";
+    document.body.appendChild(iframe);
 
-/* Corazones flotando */
-.heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #d6006c;
-    transform: rotate(45deg);
-}
-
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #d6006c;
-    border-radius: 50%;
-}
-
-.heart::before { top: -10px; left: 0; }
-.heart::after { left: 10px; top: 0; }
+    // Ocultar el botón
+    playButton.style.display = 'none';
+});
