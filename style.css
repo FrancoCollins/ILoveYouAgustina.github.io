@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffe6f0, #ffd1dc);
+    color: #d6006c;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 4em;
+    animation: pulse 1.5s infinite;
+    margin: 0.2em;
+}
+
+p {
+    font-size: 1.5em;
+    max-width: 600px;
+    line-height: 1.6;
+    animation: fadeIn 3s ease-in forwards;
+    opacity: 0;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Corazones flotando */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #d6006c;
+    transform: rotate(45deg);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #d6006c;
+    border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: 10px; top: 0; }
