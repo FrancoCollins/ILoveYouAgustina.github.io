@@ -1,38 +1,51 @@
-/* Body */
-body {
-    font-family: 'Georgia', serif;
+/* =====================
+   RESET Y BODY
+===================== */
+html, body {
+    width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Georgia', serif;
     background: linear-gradient(135deg, #ffe6f0, #ffd1dc);
     color: #d6006c;
     overflow-x: hidden; /* previene scroll horizontal */
+    box-sizing: border-box;
+    padding-top: 60px; /* espacio para navbar fija */
 }
 
-/* Navbar */
+/* =====================
+   NAVBAR
+===================== */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     padding: 10px 20px;
     background-color: rgba(214, 0, 108, 0.95);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 1000;
 }
 
-/* Lista del menú lateral */
+/* =====================
+   MENÚ LATERAL
+===================== */
 .nav-list {
     margin-top: 53px;
-    position: fixed;        /* ahora cubre todo el viewport */
+    position: fixed;
     top: 0;
     left: 0;
     width: 200px;
-    height: 100vh;          /* altura completa de la pantalla */
-    background-color: #ffd1dc; /* rosa clarito */
+    height: 100vh;
+    background-color: #ffd1dc;
     list-style: none;
     display: flex;
     flex-direction: column;
-    z-index: 2000; /* menor que el botón hamburguesa */
-    transform: translateX(-200vw); /* fuera de la pantalla */
+    z-index: 2000;
+    transform: translateX(-200vw);
     transition: transform 0.3s ease;
 }
 
@@ -49,16 +62,18 @@ body {
 }
 
 .nav-list.active {
-    transform: translateX(0); /* entra al viewport */
+    transform: translateX(0);
 }
 
-/* Botón hamburguesa */
+/* =====================
+   BOTÓN HAMBURGUESA
+===================== */
 .menu-toggle {
     display: flex;
     flex-direction: column;
     cursor: pointer;
     z-index: 1001;
-    overflow: visible; /* permitir que las barras rotadas no se corten */
+    overflow: visible;
 }
 
 .bar {
@@ -72,16 +87,21 @@ body {
 .menu-toggle.active .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
+
 .menu-toggle.active .bar:nth-child(2) {
     opacity: 0;
 }
+
 .menu-toggle.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Secciones */
+/* =====================
+   SECCIONES
+===================== */
 section#inicio {
-    min-height: calc(90vh); /* ajusta 80px al alto de tu navbar */
+    width: 100%;
+    min-height: calc(90vh);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +116,9 @@ section#inicio p {
     animation: fadeIn 3s ease-in forwards;
 }
 
-/* Corazones */
+/* =====================
+   CORAZONES
+===================== */
 .heart {
     position: absolute;
     width: 20px;
@@ -127,7 +149,9 @@ section#inicio p {
     to { opacity: 1; }
 }
 
-/* Botón música */
+/* =====================
+   BOTÓN MÚSICA
+===================== */
 #play-music {
     margin-top: 20px;
     font-size: 1.2em;
@@ -139,8 +163,12 @@ section#inicio p {
     cursor: pointer;
 }
 
-/* Carruseles */
-.carousel-container {
+/* =====================
+   CARRUSELES
+===================== */
+.carousel-container,
+.carousel-container-plans,
+.carousel-container-flights {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,18 +205,9 @@ section#inicio p {
     user-select: none;
 }
 
-/** PLANES **/
-.carousel-container-plans,
-.carousel-container-flights {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: nowrap;
-    transition: transform 0.4s ease;
-}
-
+/* =====================
+   TARJETAS
+===================== */
 .cards-wrapper {
     overflow: hidden;
     width: 90vw;
@@ -218,7 +237,6 @@ section#inicio p {
     background-color: #ffd1dc;
 }
 
-/* Tarjetas */
 .card {
     background-color: #ffd1dc;
     border: 2px solid #d6006c;
@@ -238,7 +256,9 @@ section#inicio p {
     font-size: 0.9em;
 }
 
-/* Formularios */
+/* =====================
+   FORMULARIOS
+===================== */
 .plan-form,
 .flight-form {
     margin-top: 30px;
