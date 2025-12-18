@@ -6,22 +6,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Te amo ❤️</h1>
-    <p>
-        Aunque estemos lejos,<br>
-        siento tu abrazo en cada recuerdo,<br>
-        y en cada instante que pasa,<br>
-        mi corazón te extraña más.<br>
-        Eres mi luz, mi alegría, mi todo.
-    </p>
+
+    <!-- Menú hamburguesa -->
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#planes">Planes</a></li>
+            <li><a href="#viajes">Viajes</a></li>
+            <li><a href="#sabias">¿Sabías que?</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros">
+        <h1>Hola preciosa ❤️</h1>
+        <p>
+            Te quería hacer una sorpresa y se me ocurrió crear una agenda virtual para nosotros.<br>
+            Aquí podemos anotar viajes, futuros planes, subir fotos que nos gusten<br>
+            y personalizar el diseño de la página a nuestro gusto.<br>
+            Se me ocurrió juntar tu creatividad con mis habilidades<br>
+            para hacernos un pequeño rincón virtual.<br>
+            ¡Espero que te guste y te divierta la idea!
+        </p>
+    </section>
 
     <!-- Contenedores para corazones y estrellas -->
     <div id="hearts-container"></div>
     <div id="stars-container"></div>
 
-    <!-- Botón para activar música (necesario por políticas de navegador) -->
-    <button id="play-music" style="margin-top:20px; font-size:1.2em; padding:10px 20px;">Reproducir música ❤️</button>
-
+    <!-- Botón para activar música -->
+    <button id="play-music">Reproducir música ❤️</button>
+    <div id="yt-player"></div>
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
