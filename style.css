@@ -50,7 +50,6 @@ body {
 
 .nav-list.active {
     transform: translateX(0); /* entra al viewport */
-
 }
 
 /* Botón hamburguesa */
@@ -61,7 +60,6 @@ body {
     z-index: 1001;
     overflow: visible; /* permitir que las barras rotadas no se corten */
 }
-
 
 .bar {
     height: 3px;
@@ -81,7 +79,7 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-
+/* Secciones */
 section#inicio {
     min-height: calc(90vh); /* ajusta 80px al alto de tu navbar */
     display: flex;
@@ -91,7 +89,6 @@ section#inicio {
     text-align: center;
     padding: 20px;
 }
-
 
 /* Párrafo fadeIn */
 section#inicio p {
@@ -141,6 +138,8 @@ section#inicio p {
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Carruseles */
 .carousel-container {
     display: flex;
     align-items: center;
@@ -178,120 +177,8 @@ section#inicio p {
     user-select: none;
 }
 
-
 /** PLANES **/
-.carousel-container-plans {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: nowrap;
-    transition: transform 0.4 ease;
-}
-
-.cards-wrapper {
-    overflow: hidden;
-    width: 90vw; /* ajusta según cuántas tarjetas quieras ver al mismo tiempo */
-    align-self: center;
-}
-
-.cards-container-plans {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.4s ease;
-}
-
-.carousel-btn {
-    background-color: #d6006c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5em;
-    user-select: none;
-}
-
-.cards-container-plans::-webkit-scrollbar {
-    height: 8px;
-}
-
-.cards-container-plans::-webkit-scrollbar-thumb {
-    background-color: #d6006c;
-    border-radius: 4px;
-}
-
-.cards-container-plans::-webkit-scrollbar-track {
-    background-color: #ffd1dc;
-}
-
-
-.card {
-    background-color: #ffd1dc;
-    border: 2px solid #d6006c;
-    border-radius: 10px;
-    padding: 15px;
-    width: 200px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    flex: 0 0 200px
-}
-
-.card h3 {
-    margin: 0 0 10px;
-}
-
-.card p {
-    margin: 5px 0;
-    font-size: 0.9em;
-}
-
-.plan-form {
-    margin-top: 30px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.plan-form input, .plan-form button {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #d6006c;
-}
-
-.plan-form button {
-    background-color: #d6006c;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-.plan-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* espacio entre los campos */
-    max-width: 320px; /* ancho total del form / tarjetas */
-    margin: 20px auto; /* centrar el formulario */
-}
-
-.plan-form input,
-.plan-form select,
-.plan-form textarea,
-.plan-form button {
-    width: 100%; /* todos los campos ocupan todo el ancho del form */
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #d6006c;
-    font-size: 1em;
-    box-sizing: border-box;
-}
-
-.plan-form textarea {
-    resize: vertical; /* permite cambiar altura si se quiere */
-    min-height: 60px; /* altura inicial */
-}
-
-/** flights **/
+.carousel-container-plans,
 .carousel-container-flights {
     display: flex;
     align-items: center;
@@ -299,46 +186,39 @@ section#inicio p {
     gap: 10px;
     margin-top: 20px;
     flex-wrap: nowrap;
-    transition: transform 0.4 ease;
+    transition: transform 0.4s ease;
 }
 
 .cards-wrapper {
     overflow: hidden;
-    width: 90vw; /* ajusta según cuántas tarjetas quieras ver al mismo tiempo */
+    width: 90vw;
     align-self: center;
 }
 
+.cards-container-plans,
 .cards-container-flights {
     display: flex;
     gap: 20px;
     transition: transform 0.4s ease;
 }
 
-.carousel-btn {
-    background-color: #d6006c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5em;
-    user-select: none;
-}
-
+.cards-container-plans::-webkit-scrollbar,
 .cards-container-flights::-webkit-scrollbar {
     height: 8px;
 }
 
+.cards-container-plans::-webkit-scrollbar-thumb,
 .cards-container-flights::-webkit-scrollbar-thumb {
     background-color: #d6006c;
     border-radius: 4px;
 }
 
+.cards-container-plans::-webkit-scrollbar-track,
 .cards-container-flights::-webkit-scrollbar-track {
     background-color: #ffd1dc;
 }
 
-
+/* Tarjetas */
 .card {
     background-color: #ffd1dc;
     border: 2px solid #d6006c;
@@ -346,7 +226,7 @@ section#inicio p {
     padding: 15px;
     width: 200px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    flex: 0 0 200px
+    flex: 0 0 200px;
 }
 
 .card h3 {
@@ -358,39 +238,26 @@ section#inicio p {
     font-size: 0.9em;
 }
 
+/* Formularios */
+.plan-form,
 .flight-form {
     margin-top: 30px;
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.flight-form input, .flight-form button {
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #d6006c;
-}
-
-.flight-form button {
-    background-color: #d6006c;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-.flight-form {
-    display: flex;
     flex-direction: column;
-    gap: 10px; /* espacio entre los campos */
-    max-width: 320px; /* ancho total del form / tarjetas */
-    margin: 20px auto; /* centrar el formulario */
+    gap: 10px;
+    max-width: 320px;
+    margin: 20px auto;
 }
 
+.plan-form input,
+.plan-form select,
+.plan-form textarea,
+.plan-form button,
 .flight-form input,
 .flight-form select,
 .flight-form textarea,
 .flight-form button {
-    width: 100%; /* todos los campos ocupan todo el ancho del form */
+    width: 100%;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #d6006c;
@@ -398,7 +265,75 @@ section#inicio p {
     box-sizing: border-box;
 }
 
+.plan-form textarea,
 .flight-form textarea {
-    resize: vertical; /* permite cambiar altura si se quiere */
-    min-height: 60px; /* altura inicial */
+    resize: vertical;
+    min-height: 60px;
+}
+
+.plan-form button,
+.flight-form button {
+    background-color: #d6006c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* =====================
+   MEDIA QUERIES RESPONSIVE
+===================== */
+
+/* Para móviles grandes como iPhone 16 */
+@media (max-width: 430px) {
+    body {
+        font-size: 1.2em;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-list li a {
+        font-size: 1.6em;
+    }
+
+    section#inicio p {
+        font-size: 1.3em;
+        padding: 0 15px;
+    }
+
+    .card {
+        width: 95%;
+        flex: 0 0 95%;
+    }
+
+    .carousel-container,
+    .carousel-container-plans,
+    .carousel-container-flights {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .carousel-track img,
+    .cards-container-plans .card,
+    .cards-container-flights .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .plan-form,
+    .flight-form {
+        max-width: 95%;
+        gap: 15px;
+    }
+
+    #play-music {
+        font-size: 1.6em;
+        padding: 14px 25px;
+    }
+
+    .carousel-btn {
+        font-size: 2em;
+        padding: 12px 18px;
+    }
 }
