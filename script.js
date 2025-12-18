@@ -52,35 +52,24 @@ window.addEventListener('load', () => {
 });
 
 // --- Música de fondo ---
-let player;
-let playerReady = false;
-
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player', {
-        height: '0',
-        width: '0',
-        videoId: 'CH3Et5yizAY',
-        playerVars: {
-            autoplay: 0,
-            controls: 0,
-            loop: 1,
-            playlist: 'CH3Et5yizAY'
-        },
-        events: {
-            'onReady': () => {
-                playerReady = true;
-            }
-        }
-    });
-}
-
 const playButton = document.getElementById('play-music');
+
+// Creamos un audio temporal apuntando a un .mp3
+const audio = new Audio('ruta/a/tu-audio.mp3'); // <- reemplaza con tu archivo
+
 playButton.addEventListener('click', () => {
+    // Reproducimos el audio local
+    audio.play();
+
+    // Ocultamos el botón
+    playButton.style.display = 'none';
+
+    /** Código de YouTube comentado para release futuro
     if (playerReady && player && player.playVideo) {
         player.playVideo();
         playButton.style.display = 'none';
     } 
-    /** else {
+    else {
         const warning = document.createElement('div');
         warning.textContent = '⚠️ El reproductor aún no está listo. Intenta de nuevo en unos segundos.';
         warning.style.backgroundColor = 'red';
@@ -90,7 +79,6 @@ playButton.addEventListener('click', () => {
         warning.style.borderRadius = '5px';
         document.body.appendChild(warning);
         setTimeout(() => warning.remove(), 3000);
-    } **/
+    }
+    **/
 });
-
-
