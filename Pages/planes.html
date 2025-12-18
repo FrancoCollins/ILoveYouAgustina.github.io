@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Planes ❤️</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <!-- Menú hamburguesa -->
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="./nosotros.html">Nosotros</a></li>
+            <li><a href="./planes.html">Planes</a></li>
+            <li><a href="./viajes.html">Viajes</a></li>
+            <li><a href="./sabias.html">¿Sabías que?</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección Planes -->
+    <section id="inicio">
+        <h1>Sección Planes ❤️</h1>
+        <p>Esta sección es para anotar planes e ideas que tengamos...</p>
+
+        <!-- Contenedor de tarjetas -->
+        <div class="carousel-container-plans">
+            <button class="carousel-btn prev-plans">&lt;</button>
+            <div class="cards-wrapper">
+                <div class="cards-container-plans" id="cards-container-plans">
+                    <!-- Las tarjetas se generan dinámicamente aquí -->
+                </div>
+            </div>
+            <button class="carousel-btn next-plans">&gt;</button>
+        </div>
+
+        <!-- Formulario -->
+        <form id="plan-form" class="plan-form">
+            <input type="text" name="name" placeholder="Nombre del plan" required>
+            <select name="author" required>
+                <option value="" disabled selected>Selecciona autor</option>
+                <option value="Franco">👑 Franco</option>
+                <option value="Agus">👸 Agus</option>
+            </select>
+            <input type="date" name="date" required>
+
+            <!-- Textarea para descripción -->
+            <textarea name="description" placeholder="Descripción del plan"></textarea>
+
+            <button type="submit">Agregar plan</button>
+        </form>
+
+
+    </section>
+
+
+    <div id="hearts-container"></div>
+    <div id="stars-container"></div>
+
+    <button id="play-music">Reproducir música ❤️</button>
+    <script src="../script.js"></script>
+    <script src="../planes.js"></script>
+
+</body>
+
+</html>
